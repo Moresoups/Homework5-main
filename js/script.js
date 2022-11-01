@@ -92,7 +92,16 @@ $(this).addClass("present")
 $(this).removeClass("future")
 }
 
+
 });
+
+function death() {
+  console.clear()
+  localStorage.clear();
+}
+
+
+
 fetchEvents();
 
 
