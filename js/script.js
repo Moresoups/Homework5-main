@@ -46,9 +46,6 @@ var fetchEvents = function () {
 };
 
 
-//color code will go here
-
-
 
 $("button.saveBtn").click(function (event, loadEvents) {
   event.preventDefault();
