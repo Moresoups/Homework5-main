@@ -6,6 +6,23 @@ var blockText = $("<p>").addClass("description");
 timeBlock.append(blockText);
 var currentHour = parseInt(moment().format("H"));
 
+
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};
+  return i;
+}
+
 var loadEvents = function (timeSlots) {
   timeSlots.forEach((element) => {
     console.log(element);
@@ -32,6 +49,7 @@ var fetchEvents = function () {
 //color code will go here
 
 
+
 $("button.saveBtn").click(function (event, loadEvents) {
   event.preventDefault();
   var $element = $(this).siblings("textarea");
@@ -46,10 +64,35 @@ $("button.saveBtn").click(function (event, loadEvents) {
   }
 });
 
+
+
 $(".saveBtn").hover(function () {
   $(this).addClass("saveBtn:hover");
 });
 
+$("textarea").each(function () {
+  var $this = $(this);
+  var id = parseInt($this.attr("id"));
+
+if (id < currentHour){
+$(this).addClass("past");
+$(this).removeClass("present")
+$(this).removeClass("future")
+}
+
+if (id > currentHour){
+$(this).removeClass("past");
+$(this).removeClass("present")
+$(this).addClass("future")
+}
+
+else {
+  $(this).removeClass("past");
+$(this).addClass("present")
+$(this).removeClass("future")
+}
+
+});
 fetchEvents();
 
 
