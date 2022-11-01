@@ -7,7 +7,7 @@ Majority of the HTML index is mine, starter code gave the rest. the whole of the
 Credit to "Programming with Mosh", "the coding Train", "w3schools.com" and, of course, Lada
 
 # Screenshot
-js/Screenshot%202022-10-31%20211036.png
+js/Screenshot 2022-10-31 211036.png
 # repo Link
 
 # website link
